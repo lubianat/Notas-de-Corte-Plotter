@@ -5,7 +5,13 @@ import math
 import matplotlib.pyplot as plt
 import seaborn as sns
 
+names= ['fuvest_2020','fuvest_2019','fuvest_2018','fuvest_2017','fuvest_2016','fuvest_2015','fuvest_2014','fuvest_2013','fuvest_2012']
+final_columns = ['CORTE_2020','CORTE_2019','CORTE_2018','CORTE_2017','CORTE_2016', 'CORTE_2015', 'CORTE_2014', 'CORTE_2013','CORTE_2012']
+dataframes = []
 
+WHITE = (255, 255, 255)
+
+running = True
 
 def filter(df):
     #elimina linhas vazias
