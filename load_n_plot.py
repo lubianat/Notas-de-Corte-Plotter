@@ -31,11 +31,13 @@ def filter(df):
     else:
         df_final = df
 
-    df_final['CODIGO_E_NOME_DA_CARREIRA'] = df_final['CODIGO_E_NOME_DA_CARREIRA'].str.extract('(\d+)')
+    df_final['CODIGO_DA_CARREIRA'] = df_final['CODIGO_E_NOME_DA_CARREIRA'].str.extract('(\d+)')
+    df_final['NOME_DA_CARREIRA'] = df_final['CODIGO_E_NOME_DA_CARREIRA'].str.extract('(\d+)−(.*)')
+
 
     return df_final
 
-def load(names, save = False):
+def load(names, dataframes, save = False):
     for name in names:
         data = pd.read_table("./csv/"+name+".csv",skip_blank_lines=True, skipinitialspace=True, sep=',')
         data = filter(data)
